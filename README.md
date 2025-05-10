@@ -1,9 +1,8 @@
-<p align="center">
-![acitvedirectory](https://github.com/user-attachments/assets/281aa924-786b-4692-9111-427bb727ea92)
-</p>
 
-<h1>Active Directory - </h1>
-<br />
+![acitvedirectory](https://github.com/user-attachments/assets/281aa924-786b-4692-9111-427bb727ea92)
+
+
+<h1>Active Directory - Setup and Configuration </h1>
 
 
 <h2>Environments and Technologies Used</h2>
