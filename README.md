@@ -1,8 +1,8 @@
 <p align="center">
-<img src="https://i.imgur.com/Clzj7Xs.png" alt="osTicket logo"/>
+![acitvedirectory](https://github.com/user-attachments/assets/281aa924-786b-4692-9111-427bb727ea92)
 </p>
 
-<h1>osTicket - Tickets and Ticket Lifecycle</h1>
+<h1>Active Directory - </h1>
 <br />
 
 
@@ -10,7 +10,7 @@
 
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
-- osTicket
+- Active Directory
 
 <h2>Operating Systems Used </h2>
 
@@ -18,11 +18,12 @@
 
 <h2>List of Prerequisites</h2>
 
-- Have the osTicket software successsfully installed onto a virtual machine and configured with all of the items that we created in the last walkthrough.
+Have a Microsoft Azure account ready so we can create and configure our virtual machines and configure Active Directory. 
  
 <h2>Overview</h2>
 
-In this walkthrough we're going to be creating tickets as end users and observing all the ticket properties and responding to them as help desk professionals. Solving mock tickets gives us a feel for how we would use the osTicket software to solve issues in real world scenarios, and deepens our understanding with the osTicket software.
+In this walkthrough we're going to be creating and configuring some virtual machines, before using them to deploy and configure Active Directory.
 
+<h2>Active Directory</h2>
 
-<h2>Tickets and Ticket Lifecycle</h2>
+- 
