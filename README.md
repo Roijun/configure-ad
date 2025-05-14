@@ -25,7 +25,7 @@ In this walkthrough we're going to be creating and configuring some virtual mach
 
 <h2>Active Directory</h2>
 
-- Setup Domain Controller in Azure
+- Setup & Configure Domain Controller in Azure
 
 We're going to simulate an environment, starting with a virtual machine that's going to be running windows server, and acting as our domain controller. We're also going to create another virtual machine running Windows 10, acting as our client joining our domain. Later on we'll be able to log onto the client with users that exist within the domain controller. We're also going to set the DNS IP address and our clients network interface card to the same IP address as the domain controller. 
 
@@ -52,7 +52,7 @@ In the 'Overview' section at the bottom of the page we'll want to click on 'Wind
 
 Once we're done with this step we can go ahead and click apply and ok. This marks the end of the setup phase for our domain controller within our simulated envirnoment.
 
-- Setup Client-1 in Azure
+- Setup and Configure Client-1 in Azure
 
 For the client's virtual machine setup we're going to put it in the same resource group as the previous machine, and we're going to name it 'Client-1'. For the image we can use the normal Windows 10 machine, with a preferred 8gb of ram. The last thing we've got to do before finishing the creation of the machine is make sure the machine is attached to the same region and virtual network as dc-1, then we can hit review & create. 
 
@@ -60,6 +60,14 @@ The next step is to set Client-1's DNS settings to dc-1's private IP address. To
 
 ![dns servers](https://github.com/user-attachments/assets/11f177ea-3c8d-436c-b2a5-53db779c9917)
 
-We're going to change ther server type over to custom, and then enter the private IP address from dc-1 that we copied before hitting save up at the top of the page.
+We're going to change ther server type over to custom, and then enter the private IP address from dc-1 that we copied before hitting save up at the top of the page. We're going to do some simple testing between the two machines, but before we do that we need to restart the Client-1 virtual machine within Azure. Once restarted we're going to log into our Client-1 machine using our username and password and we're going to attempt to ping dc-1's private IP address. If we did the setup correctly the ping should be successful.
+
+![ping](https://github.com/user-attachments/assets/7f58f69e-5984-49a4-9680-3d12bcfc2229)
+
+Next we are going to run 'ipconfig /all' within the powershell application and when we get a response we are going to look for dc-1's private IP address as the output for DNS setting. Once we view and confirm that they match, we are done with the setup and configuration of these two machines.
+
+![ipconfigall](https://github.com/user-attachments/assets/192d0bba-a040-47ff-8232-188bdcf79bd6)
+
+
 
 
