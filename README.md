@@ -90,11 +90,11 @@ The next window will prompt you for a password, just make it something you can r
 
 - Create a Domain Admin user within the domain
 
+When signing in back onto the dc-1 system we'll want to make sure we use 'mydomain.com/' followed by our username. We need to specifiy that we are logging in onto the domain, and not just logging in as a local user. After we sign back in we can go ahead and open our active directory. We're going to use the start button in the bottom left and search for 'Active Directory Users and Computers'.
 
+![activedirectory](https://github.com/user-attachments/assets/4bc82bba-8915-459e-921e-19b78cb158e9)
 
-When signing in back onto the dc-1 system we'll want to make sure we use 'mydomain.com/' followed by our username. We need to specifiy that we are logging in onto the domain, and not just logging in as a local user. 
-
-
+Next we're going to create a new organizational unit called '_EMPLOYEES'. From the ADUC window we want to right click our domain, hover over new, and then finally click organizational unit. We'll create one unit named _EMPLOYEES and other named _ADMINS. 
 
 
 
