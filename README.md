@@ -25,6 +25,8 @@ In this walkthrough we're going to be creating and configuring some virtual mach
 
 <h2>Active Directory</h2>
 
+<h3>Setup and Configuration</h3>
+
 - Setup & Configure Domain Controller in Azure
 
 We're going to simulate an environment, starting with a virtual machine that's going to be running windows server, and acting as our domain controller. We're also going to create another virtual machine running Windows 10, acting as our client joining our domain. Later on we'll be able to log onto the client with users that exist within the domain controller. We're also going to set the DNS IP address and our clients network interface card to the same IP address as the domain controller. 
