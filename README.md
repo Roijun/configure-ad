@@ -2,7 +2,7 @@
 ![acitvedirectory](https://github.com/user-attachments/assets/281aa924-786b-4692-9111-427bb727ea92)
 
 
-<h1>Active Directory - Setup and Configuration </h1>
+<h1>Active Directory - Preparing AD Infrastructure in Azure</h1>
 
 
 <h2>Environments and Technologies Used</h2>
@@ -17,7 +17,7 @@
 
 <h2>List of Prerequisites</h2>
 
-Have a Microsoft Azure account ready so we can create and configure our virtual machines and configure Active Directory. 
+Have a Microsoft Azure account ready so we can create and configure our virtual machines as well as Active Directory. 
  
 <h2>Overview</h2>
 
@@ -25,7 +25,7 @@ In this walkthrough we're going to be creating and configuring some virtual mach
 
 <h2>Active Directory</h2>
 
-<h3>Setup and Configuration</h3>
+<h3>Preparing AD Infrastructure in Azure</h3>
 
 - Setup & Configure Domain Controller in Azure
 
@@ -66,7 +66,7 @@ We're going to change ther server type over to custom, and then enter the privat
 
 ![ping](https://github.com/user-attachments/assets/7f58f69e-5984-49a4-9680-3d12bcfc2229)
 
-Next we are going to run 'ipconfig /all' within the powershell application and when we get a response we are going to look for dc-1's private IP address as the output for DNS setting. Once we view and confirm that they match, we are done with the setup and configuration.
+Next we are going to run 'ipconfig /all' within the powershell application and when we get a response we are going to look for dc-1's private IP address as the output for DNS setting. Once we view and confirm that they match, we are done preparing the AD infrastructure within using Azure.
 
 ![ipconfigall](https://github.com/user-attachments/assets/192d0bba-a040-47ff-8232-188bdcf79bd6)
 
