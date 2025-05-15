@@ -66,8 +66,52 @@ We're going to change ther server type over to custom, and then enter the privat
 
 ![ping](https://github.com/user-attachments/assets/7f58f69e-5984-49a4-9680-3d12bcfc2229)
 
+<h3>Installation and Deployment</h3>
+
+We're going to go through and actually install active directory on the domain controller and we're going to create a domain admin for us to use. We're also going to join our client-1 onto the domain. Doing so allows us to use all of the users that exist in the domain to log onto the client-1 machine. 
+
+- Install Active Directory
+
+To install active directory we're going to want to get logged in using our dc-1 machine. Once there hit the start button in the bottom left and go to open the server manager application. Once there we'll want to select 'Add roles and features' from the top of the window. Once in this window we'll want to select next until we reach the 'Server Roles' section. Once here you need to check the 'Active Directory Domain Services' box, and make sure to apply features when prompted.
+
+![server roles](https://github.com/user-attachments/assets/fddd2fc0-f786-4c05-8e78-e240fa9412c0)
+
+We can hit next until we reach the 'Confirmation' section, where we'll make sure to check the box near the top of the window that reads 'Restart the destination server automatically if required'. Once we've done that we can go ahead and hit install and close out the window. 
+
+Next we need to go in and promote dc-1 to the domain controller within the system. We need to open server manager once again, and in the top right you'll want to click on the flag icon and select 'Promote this server to a domain controller'. Once here we'll select the Add a new forest option. We'll make our domain name 'mydomain.com' and hit next. 
+
+![activedirec](https://github.com/user-attachments/assets/ecfc9723-f096-4280-bece-424b12582678)
+
+The next window will prompt you for a password, just make it something you can remember easily. We can hit next until we reach the DNS options page. We want the 'Create DNS Delegation' box to be unchecked. With all that in place we can go ahead and hit next unti we get to the last page, then we can hit install when the system will allow us. Once it's finished installing the computer now becomes a domain controller, and the system will auto restart itself. 
+
+- Create a Domain Admin user within the domain
+
+When signing in back onto the dc-1 system we'll want to make sure we use 'mydomain.com/' followed by our username. We need to specifiy that we are logging in onto the domain, and not just logging in as a local user. After we sign back in we can go ahead and open our active directory. We're going to use the start button in the bottom left and search for 'Active Directory Users and Computers'.
+
+![activedirectory](https://github.com/user-attachments/assets/4bc82bba-8915-459e-921e-19b78cb158e9)
+
+Next we're going to create a new organizational unit called '_EMPLOYEES'. From the ADUC window we want to right click our domain, hover over new, and then finally click organizational unit. We'll create one unit named _EMPLOYEES and other named _ADMINS. 
+
+![employeesadmin](https://github.com/user-attachments/assets/c0a90bf3-ccd5-47c9-93ad-2c8001a33e34)
+
+Next we're going to create a user inside of the _ADMINS OU that we just created. To do this we need to double click the _ADMINS folder, and in the right side of this window right click inside the empty space. Then hover over 'New' before selecting User. We're going to name our user Jane Doe, with a username of jane_admin. Hit the next button and you'll be prompted to give our user a password, just make sure you don't lose it before we need to use it. We normally wouldn't check these in real world scenarios, but we're going to uncheck user must change password on next login, and check password never expires just to make it a bit easier for us.
+
+![passwordprop](https://github.com/user-attachments/assets/5dc6049d-2424-4ee3-b9e7-08ec11f05851)
+
+The next thing we are going to do is to add our user into the domain admin security group. We'll want to right click on Jane, and select properties. From that window go to the 'Member Of' section and click on 'Add'. We'll type in 'domain admin', and click search to look for security groups with the same name association. Once 'Domain Admins' is underlined we can hit okay, then apply, then okay. Jane is now a proud member of the domain admin security group, and has extended permissions. 
+
+![admin](https://github.com/user-attachments/assets/68af3f77-00b3-4df0-aa07-2978c2eed7bf)
+
+We're going to continue with the rest of this walkthrough as our new admin user Jane. We'll want to log out of the account that we are currently accessing dc-1 with and log in as Jane. 
+
+- Join Client-1 to your domain (mydomain.com)
+
+We're going to join our client-1 machine into our domain. To navigate here we'll want to click on start and search or click on system. Once at the system page we'll want to click 'Rename this PC (advanced)'. Under the computer name tab click on change. This window is where we add our client machine into our domain system. Under domain we'll enter 'mydomain.com' and hit okay. It will have you log in as our admin Jane to give you permission to add our client into our domain. Once logged in it will greet you into the domain, and restart to update the network changes.
+
+The last thing we'll do before moving onto the next section is create a new organizational unit for our clients named '_CLIENTS'. After that we're ging to click on the 'Computers' folder and drag our client-1 machine on over to our new folder we just created. 
+
 Next we are going to run 'ipconfig /all' within the powershell application and when we get a response we are going to look for dc-1's private IP address as the output for DNS setting. Once we view and confirm that they match, we are done preparing the AD infrastructure within using Azure.
 
 ![ipconfigall](https://github.com/user-attachments/assets/192d0bba-a040-47ff-8232-188bdcf79bd6)
 
-In the next walkthrough using Azure we are going to continue with the resources that we set up here, configure users into security groups, and continue to flesh out the Active Directory system.
+In the next walkthrough we'll be creating a bunch of users using a script, and then going into managing those users shortly after.
